@@ -20,9 +20,12 @@ function rot14(encodedString){
 
     var codedArr = encodedString.split(""); //string to array, Ivar's puzzle
     var decodedArr = []; //The Answer to Ivar's Puzzle
+    // var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
+    // ,"q","r","s","t","u","v","w","x","y","z","a","b","c","d","e","f","g","h","i","j"
+    // ,"k","l","m","n"];
+
     var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
-    ,"q","r","s","t","u","v","w","x","y","z","a","b","c","d","e","f","g","h","i","j"
-    ,"k","l","m","n"];
+    ,"q","r","s","t","u","v","w","x","y","z"];
 
         for (var i = 0; i < codedArr.length; i++) {
           if(alphabet.indexOf(codedArr[i])===-1){
@@ -31,7 +34,7 @@ function rot14(encodedString){
           else{
             for (var j = 0; j < alphabet.length; j++) {
               if(codedArr[i]===alphabet[j]){
-                decodedArr.push(alphabet[j+14])
+                decodedArr.push(alphabet[(j+14)%26])
               }
             }
           }
